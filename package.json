@@ -1,0 +1,8 @@
+{
+  "name": "nx-semantic-release",
+  "version": "0.1.0",
+  "main": "index.js",
+  "repository": "https://github.com/lookapanda/nx-semantic-release",
+  "author": "Simon <sn@hitbox.tv>",
+  "license": "MIT"
+}
