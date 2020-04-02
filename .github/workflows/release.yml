@@ -31,11 +31,6 @@ jobs:
         with:
           cmd: run lint
 
-      - name: Test
-        uses: borales/actions-yarn@v2.1.0
-        with:
-          cmd: run test
-
       - name: Setup Node.js with GitHub Package Registry
         uses: actions/setup-node@v1
         with:
