@@ -1,8 +1,104 @@
 {
-  "name": "nx-semantic-release",
+  "name": "@lookapanda/nx-semantic-release",
   "version": "0.1.0",
-  "main": "index.js",
   "repository": "https://github.com/lookapanda/nx-semantic-release",
   "author": "Simon <sn@hitbox.tv>",
-  "license": "MIT"
+  "license": "MIT",
+  "engines": {
+    "node": ">=10.18"
+  },
+  "main": "dist/index.js",
+  "module": "dist/nx-semantic-release.esm.js",
+  "typings": "dist/index.d.js",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "start": "tsdx watch",
+    "build": "tsdx build",
+    "test": "jest",
+    "lint": "eslint src/**/*.ts",
+    "semantic-release": "semantic-release"
+  },
+  "release": {
+    "branch": "master"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "prettier": {
+    "trailingComma": "es5",
+    "singleQuote": true,
+    "semi": true,
+    "parser": "typescript",
+    "arrowParens": "avoid"
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": "prettier --write",
+    "*.{ts,tsx}": "eslint"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^8.3.5",
+    "@commitlint/config-conventional": "^8.3.4",
+    "@semantic-release/changelog": "^5.0.1",
+    "@semantic-release/git": "^9.0.0",
+    "@types/node": "^13.9.8",
+    "@types/semantic-release": "^15.13.1",
+    "@typescript-eslint/eslint-plugin": "^2.26.0",
+    "@typescript-eslint/parser": "^2.26.0",
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.10.1",
+    "eslint-plugin-prettier": "^3.1.2",
+    "husky": "^4.2.3",
+    "lint-staged": "^10.1.1",
+    "prettier": "^2.0.2",
+    "semantic-release": "^17.0.4",
+    "tsdx": "^0.13.1",
+    "tslib": "^1.11.1",
+    "typescript": "^3.8.3"
+  },
+  "eslintIgnore": ["*.spec.ts"],
+  "eslintConfig": {
+    "parser": "@typescript-eslint/parser",
+    "extends": [
+      "plugin:@typescript-eslint/recommended",
+      "prettier/@typescript-eslint",
+      "plugin:prettier/recommended"
+    ],
+    "parserOptions": {
+      "ecmaVersion": 2018,
+      "sourceType": "module"
+    },
+    "plugins": [
+      "prettier"
+    ],
+    "rules": {
+      "prettier/prettier": "error",
+      "@typescript-eslint/interface-name-prefix": 0,
+      "@typescript-eslint/explicit-function-return-type": 0,
+      "@typescript-eslint/explicit-member-accessibility": 0,
+      "@typescript-eslint/no-explicit-any": 0,
+      "@typescript-eslint/camelcase": 0,
+      "@typescript-eslint/no-parameter-properties": 0,
+      "@typescript-eslint/no-inferrable-types": [
+        1,
+        {
+          "ignoreParameters": true,
+          "ignoreProperties": true
+        }
+      ],
+      "@typescript-eslint/no-non-null-assertion": 0
+    }
+  }
 }
