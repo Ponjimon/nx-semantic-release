@@ -7,7 +7,9 @@ export const runNxAffected = (options: NxOptions, context: Context) => {
     const { logger } = context;
 
     options.targets.forEach(target => {
-        const command = `nx affected --target=${target} ${getNxBaseHeadRefArgs(
+        const command = `nx affected${
+            options.parallel ? ' --parallel ' : ''
+        }--target=${target} ${getNxBaseHeadRefArgs(
             options,
             context
         )} ${options.extraArgs.join(' ')}`.replace(/\r?\n|\r/g, '');

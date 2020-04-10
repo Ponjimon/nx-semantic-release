@@ -3,4 +3,5 @@ export interface NxOptions {
     projects?: string[];
     customCommands?: string[];
     extraArgs?: string[];
+    parallel?: boolean;
 }
