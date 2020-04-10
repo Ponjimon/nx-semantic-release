@@ -24,3 +24,5 @@ export const prepare = async (options: NxOptions, context: Context) => {
 
     return prepareNx(options, context);
 };
+
+export * from './lib';
