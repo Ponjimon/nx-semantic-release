@@ -8,7 +8,7 @@ export const runNxAffected = (options: NxOptions, context: Context) => {
 
     options.targets.forEach(target => {
         const command = `nx affected${
-            options.parallel ? ' --parallel ' : ''
+            options.parallel ? ' --parallel ' : ' '
         }--target=${target} ${getNxBaseHeadRefArgs(
             options,
             context
